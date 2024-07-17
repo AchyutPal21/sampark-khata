@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" 
+th:replace="~{fragments/base :: base_fragment(~{::title}, ~{::#content}, ~{::script})}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Sampark Khata</title>
+</head>
+<body>
+    <div id="content">
+        Welcome to about page!!!
+    </div>
+
+    <script>
+        setTimeout(() => {
+            alert("Hello from script");
+        }, 3000)
+    </script>
+</body>
+</html>
