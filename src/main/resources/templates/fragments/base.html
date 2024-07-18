@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  th:fragment="base_fragment(title, content, scripts)"
+  xmlns:th="http://www.thymeleaf.org"
+  class="light"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-th-replace="${title}"></title>
+
+    <!-- Flowbit CSS CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <!-- Tailwindcss css -->
+    <link rel="stylesheet" data-th-href="@{/css/output.css}" />
+  </head>
+  <body class="dark:bg-gray-900 dark:text-white">
+    <!-- Common header -->
+    <header data-th-insert="~{fragments/navbar :: navbar_fragment}"></header>
+
+    <!-- main content -->
+    <div class="app p-4" data-th-insert="${content}"></div>
+
+    <!-- Common footer -->
+    <footer
+      data-th-insert="~{fragments/footer :: footer_fragment}"
+      class="p-4"
+    ></footer>
+
+    <script data-th-src="@{/js/script.js}"></script>
+    <!-- Flowbit JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+    <!-- Pages Scripts -->
+    <th:block data-th-replace="${scripts}"></th:block>
+  </body>
+</html>
