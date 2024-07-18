@@ -30,4 +30,24 @@ public class PageController {
     public String services(Model model) {
         return "pages/services";
     }
+
+
+    // Contact us route
+    @GetMapping("/contact")
+    public String contactUs(Model model) {
+        return "pages/contact";
+    }
+
+    // Login route
+    @GetMapping("/login")
+    public String login(Model model) {
+        return "pages/login";
+    }
+
+
+    // register route
+    @GetMapping("/register")
+    public String register(Model model) {
+        return "pages/register";
+    }
 }

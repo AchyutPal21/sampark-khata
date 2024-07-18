@@ -37,6 +37,6 @@ node_modules
 
 
 # Ignore all application properties files except development
+!application.properties
 application-*.properties
-!application-dev.properties
 
