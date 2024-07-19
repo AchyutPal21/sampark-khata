@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  th:replace="~{fragments/base :: base_fragment(~{::title}, ~{::#content}, ~{::script})}"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sampark Khata</title>
+  </head>
+  <body>
+    <div id="content">
+      <!-- Grid Area Starts -->
+      <!-- This is 12 columns grid total area -->
+      <div class="grid grid-cols-12">
+        <!-- Grid columns Starts -->
+        <div class="col-span-4 md:col-span-2 lg:col-span-3 xl:col-span-4"></div>
+        <!-- Within this 12 columns this div is taking 4 columns area -->
+        <!-- Centering the card  -->
+        <div class="col-span-12 md:col-span-8 lg:col-span-6 xl:col-span-4">
+          <!-- Card -->
+          <div
+            href="#"
+            class="block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+          >
+            <h5
+              class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+            >
+              Join us
+            </h5>
+            <h5
+              class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+            >
+              Create a Sampark Khata account
+            </h5>
+            <p class="font-normal text-gray-500 dark:text-gray-400">
+              Access your contacts instantly from anywhere.
+            </p>
+
+            <!-- Alter Message -->
+            <div
+              data-th-replace="~{fragments/messageTemplate :: message_template_fragment}"
+            ></div>
+
+            <!-- User Form Data -->
+
+            <form
+              data-th-action="@{'/register'}"
+              method="POST"
+              data-th-object="${userRegisterForm}"
+              id="registerForm"
+              class="mt-10 max-w-md mx-auto"
+            >
+              <div class="relative z-0 w-full mb-5 group">
+                <input
+                  data-th-field="*{userEmail}"
+                  type="email"
+                  name="userEmail"
+                  id="userEmail"
+                  class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  placeholder=" "
+                  required
+                />
+                <label
+                  for="userEmail"
+                  class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >Email address</label
+                >
+              </div>
+              <div class="relative z-0 w-full mb-5 group">
+                <input
+                  data-th-field="*{userPassword}"
+                  type="password"
+                  name="userPassword"
+                  id="userPassword"
+                  class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  placeholder=" "
+                  minlength="8"
+                  required
+                />
+                <label
+                  for="userPassword"
+                  class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >Password</label
+                >
+              </div>
+              <div class="relative z-0 w-full mb-5 group">
+                <input
+                  data-th-field="*{userConfirmPassword}"
+                  type="password"
+                  name="userConfirmPassword"
+                  id="userConfirmPassword"
+                  class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  placeholder=" "
+                  minlength="8"
+                  required
+                />
+                <label
+                  for="userConfirmPassword"
+                  class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >Confirm password</label
+                >
+              </div>
+              <div class="grid md:grid-cols-2 md:gap-6">
+                <div class="relative z-0 w-full mb-5 group">
+                  <input
+                    data-th-field="*{userFirstName}"
+                    type="text"
+                    name="userFirstName"
+                    id="userFirstName"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder=" "
+                    required
+                  />
+                  <label
+                    for="userFirstName"
+                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    >First name</label
+                  >
+                </div>
+                <div class="relative z-0 w-full mb-5 group">
+                  <input
+                    data-th-field="*{userLastName}"
+                    type="text"
+                    name="userLastName"
+                    id="userLastName"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder=" "
+                    required
+                  />
+                  <label
+                    for="userLastName"
+                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    >Last name</label
+                  >
+                </div>
+              </div>
+              <div class="grid md:grid-cols-2 md:gap-6">
+                <div class="relative z-0 w-full mb-5 group">
+                  <input
+                    data-th-field="*{userPhoneNumber}"
+                    type="tel"
+                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                    name="userPhoneNumber"
+                    id="userPhoneNumber"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder=" "
+                    required
+                  />
+                  <label
+                    for="userPhoneNumber"
+                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    >Phone number (123-456-7890)</label
+                  >
+                </div>
+                <div class="relative z-0 w-full mb-5 group">
+                  <input
+                    data-th-field="*{userAbout}"
+                    type="text"
+                    name="userAbout"
+                    id="userAbout"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder=" "
+                    required
+                  />
+                  <label
+                    for="userAbout"
+                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    >About Yourself</label
+                  >
+                </div>
+              </div>
+              <button
+                type="submit"
+                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              >
+                Sign up
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- Grid Area Ends -->
+    </div>
+
+    <!-- Form Script -->
+    <script>
+      function showModal() {
+        // Create the modal element
+        const modal = document.createElement("div");
+        modal.id = "passwordMismatchModal";
+        modal.classList.add(
+          "fixed",
+          "inset-0",
+          "flex",
+          "items-center",
+          "justify-center",
+          "bg-black",
+          "bg-opacity-50",
+          "z-50"
+        );
+
+        // Modal content
+        modal.innerHTML = `
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+            <h2 class="text-2xl font-bold mb-4">Error</h2>
+            <p>Passwords do not match. Please try again.</p>
+            <button id="closeModalButton" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg">Close</button>
+        </div>
+    `;
+
+        // Append modal to the body
+        document.body.appendChild(modal);
+
+        // Close modal on button click
+        document
+          .getElementById("closeModalButton")
+          .addEventListener("click", function () {
+            document.body.removeChild(modal);
+          });
+      }
+
+      function trimFormInputs() {
+        const form = document.getElementById("registerForm");
+        const inputs = form.querySelectorAll("input");
+        inputs.forEach((input) => {
+          input.value = input.value
+            .trim()
+            .split(" ")
+            .filter((word) => word.length > 0)
+            .join(" ");
+        });
+      }
+
+      document
+        .getElementById("registerForm")
+        .addEventListener("submit", function (event) {
+          trimFormInputs();
+          const password = document.getElementById("userPassword").value;
+          const confirmPassword = document.getElementById(
+            "userConfirmPassword"
+          ).value;
+          if (password !== confirmPassword) {
+            showModal();
+            event.preventDefault(); // Prevent the form from submitting
+          }
+        });
+    </script>
+  </body>
+</html>
