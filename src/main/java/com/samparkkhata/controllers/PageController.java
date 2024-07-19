@@ -8,7 +8,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.samparkkhata.entities.User;
 import com.samparkkhata.forms.UserRegisterForm;
+import com.samparkkhata.helpers.AlertMessages;
+import com.samparkkhata.helpers.MessageType;
 import com.samparkkhata.services.UserService;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class PageController {
@@ -62,7 +66,7 @@ public class PageController {
 
     // Register user
     @PostMapping("/register")
-    public String registerUser(@ModelAttribute UserRegisterForm userRegisterForm) {
+    public String registerUser(@ModelAttribute UserRegisterForm userRegisterForm, HttpSession httpSession) {
         // Received the form data via @ModelAttribute annotation
 
         // From the incoming user signup form data we are creating user, and storing to db
@@ -76,8 +80,15 @@ public class PageController {
                 .build();
         
         User savedUser = userService.saveUser(user);
+        System.out.println(savedUser);
 
-        System.out.println("New user: " + savedUser);
+        // Using session to show the success message
+        AlertMessages alertMessages = AlertMessages.builder()
+        .message("Registration Successful")
+        .messageType(MessageType.SUCCESS)
+        .build();
+
+        httpSession.setAttribute("alertMessages", alertMessages);
 
         return "redirect:/signup";
     }
