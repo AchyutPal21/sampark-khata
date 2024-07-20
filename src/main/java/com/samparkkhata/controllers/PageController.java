@@ -2,6 +2,7 @@ package com.samparkkhata.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +14,7 @@ import com.samparkkhata.helpers.MessageType;
 import com.samparkkhata.services.UserService;
 
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 
 @Controller
 public class PageController {
@@ -66,8 +68,13 @@ public class PageController {
 
     // Register user
     @PostMapping("/register")
-    public String registerUser(@ModelAttribute UserRegisterForm userRegisterForm, HttpSession httpSession) {
-        // Received the form data via @ModelAttribute annotation
+    public String registerUser(@Valid @ModelAttribute UserRegisterForm userRegisterForm, BindingResult rBindingResult, HttpSession httpSession) {
+        // Fetch form data: Received the form data via @ModelAttribute annotation
+        // Validate from data
+        // rBindingResult is to check if their is any error in the incoming form as per our validation we have set
+        if (rBindingResult.hasErrors()) {
+            return "pages/signup";
+        }
 
         // From the incoming user signup form data we are creating user, and storing to db
         User user = User.builder()

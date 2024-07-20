@@ -66,6 +66,14 @@
                   class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   >Email address</label
                 >
+
+                <!-- Error messages from sever -->
+                <p
+                  data-th-if="${#fields.hasErrors('userEmail')}"
+                  data-th-errors="*{userEmail}"
+                  class="text-red-500 text-[12px] pt-2.5"
+                ></p>
+                <!-- Error messages from sever ENDS -->
               </div>
               <div class="relative z-0 w-full mb-5 group">
                 <input
@@ -83,6 +91,11 @@
                   class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   >Password</label
                 >
+                <p
+                  data-th-if="${#fields.hasErrors('userPassword')}"
+                  data-th-errors="*{userPassword}"
+                  class="text-red-500 text-[12px] pt-2.5"
+                ></p>
               </div>
               <div class="relative z-0 w-full mb-5 group">
                 <input
@@ -100,6 +113,11 @@
                   class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   >Confirm password</label
                 >
+                <p
+                  data-th-if="${#fields.hasErrors('userConfirmPassword')}"
+                  data-th-errors="*{userConfirmPassword}"
+                  class="text-red-500 text-[12px] pt-2.5"
+                ></p>
               </div>
               <div class="grid md:grid-cols-2 md:gap-6">
                 <div class="relative z-0 w-full mb-5 group">
@@ -117,6 +135,11 @@
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                     >First name</label
                   >
+                  <p
+                    data-th-if="${#fields.hasErrors('userFirstName')}"
+                    data-th-errors="*{userFirstName}"
+                    class="text-red-500 text-[12px] pt-2.5"
+                  ></p>
                 </div>
                 <div class="relative z-0 w-full mb-5 group">
                   <input
@@ -133,8 +156,14 @@
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                     >Last name</label
                   >
+                  <p
+                    data-th-if="${#fields.hasErrors('userLastName')}"
+                    data-th-errors="*{userLastName}"
+                    class="text-red-500 text-[12px] pt-2.5"
+                  ></p>
                 </div>
               </div>
+              <!-- LETS SEE THE CHANGES -->
               <div class="grid md:grid-cols-2 md:gap-6">
                 <div class="relative z-0 w-full mb-5 group">
                   <input
@@ -152,6 +181,11 @@
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                     >Phone number (123-456-7890)</label
                   >
+                  <p
+                    data-th-if="${#fields.hasErrors('userPhoneNumber')}"
+                    data-th-errors="*{userPhoneNumber}"
+                    class="text-red-500 text-[12px] pt-2.5"
+                  ></p>
                 </div>
                 <div class="relative z-0 w-full mb-5 group">
                   <input
@@ -168,6 +202,11 @@
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                     >About Yourself</label
                   >
+                  <p
+                    data-th-if="${#fields.hasErrors('userAbout')}"
+                    data-th-errors="*{userAbout}"
+                    class="text-red-500 text-[12px] pt-2.5"
+                  ></p>
                 </div>
               </div>
               <button
