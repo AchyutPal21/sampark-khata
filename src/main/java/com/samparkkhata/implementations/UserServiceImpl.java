@@ -5,9 +5,11 @@ import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.samparkkhata.entities.User;
+import com.samparkkhata.helpers.AppConstants;
 import com.samparkkhata.helpers.ResourceNotFoundException;
 import com.samparkkhata.repositories.UserRepository;
 import com.samparkkhata.services.UserService;
@@ -16,15 +18,24 @@ import com.samparkkhata.services.UserService;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     // Constructor Injection
-    public UserServiceImpl(UserRepository userRepository) {
+    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
     public User saveUser(User user) {
+        logger.info(user.getUserProvider().toString());
+        // Encoding the password
+        user.setUserPassword(passwordEncoder.encode(user.getUserPassword()));
+
+        // Set the user role's
+        user.setUserRoleList(List.of(AppConstants.ROLE_USER));
+
         return userRepository.save(user);
     }
 

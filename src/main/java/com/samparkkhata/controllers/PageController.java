@@ -16,6 +16,7 @@ import com.samparkkhata.services.UserService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
+
 @Controller
 public class PageController {
 
@@ -25,12 +26,14 @@ public class PageController {
         this.userService = userService;
     }
 
+    @GetMapping("/")
+    public String index() {
+        return "redirect:/home";
+    }
+
     // Home route
     @GetMapping("/home")
-    public String home(Model model) {
-        System.out.println("This is home page");
-        model.addAttribute("name", "Achyut Pal");
-        model.addAttribute("course", "Spring Boot Project");
+    public String home() {
         return "pages/home";
     }
 
@@ -65,6 +68,8 @@ public class PageController {
         model.addAttribute(userRegisterForm);
         return "pages/signup";
     }
+
+    
 
     // Register user
     @PostMapping("/register")
